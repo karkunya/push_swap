@@ -3,7 +3,8 @@
 //надо дописать ра рь
 void alg(t_list **a_list, t_list **b_list)
 {
-//	t_list *temp;
+	//	t_list *temp;
+	int i = 10;
 
 	pb(a_list, b_list);
 	pb(a_list, b_list);
@@ -11,8 +12,9 @@ void alg(t_list **a_list, t_list **b_list)
 		rb(b_list);
 	while (*a_list)
 	{
-		while ((*a_list)->pos <(*b_list)->pos)
-			 *b_list = (*b_list)->ptr;
+		while (((*a_list)->pos < (*b_list)->pos) && i-- > 0)
+			 rb(b_list);
+		i = 10;
 		pb(a_list, b_list);
 	}
 	while (*b_list)

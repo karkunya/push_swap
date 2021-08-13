@@ -42,7 +42,15 @@ void	ss(t_list **list_a, t_list **list_b)
 
 void 	pb_low(t_list **list_a, t_list **list_b)
 {
+	t_list *ptrl;
+	t_list *temp;
 
+	temp = *list_a;
+	ptrl = lst_ptr(*list_b);
+	temp->ptr = *list_b;
+	*list_b = temp;
+	ptrl->ptr = *list_b;
+	*list_a = NULL;
 }
 
 
@@ -51,11 +59,14 @@ void	pb(t_list **list_a, t_list **list_b)
 {
 	t_list *ptrl;
 	t_list *temp;
-
+//	printf("\n ******%d *** \n", list_len(*list_a));
 	if (*list_a)
     {
-		if (list_len(*list_a) < 3)
+		if (list_len(*list_a) == 1)
+		{
 			pb_low(list_a, list_b);
+			return ;
+		}
 		if (!(*list_b))
         {
 			*list_b = *list_a;
@@ -75,6 +86,13 @@ void	pb(t_list **list_a, t_list **list_b)
 			*list_b = temp;
 			ptrl->ptr = *list_b;
 		}
+//		if (list_len(*list_a) == 2)
+//		{
+//			(*list_a)->ptr = *list_a;
+//			printf("\n==2\n");
+//		}
+//		if (list_len(*list_a) == 1)
+//			*list_a = NULL;
 	}
 }
 
@@ -85,6 +103,11 @@ void	pa(t_list **list_b, t_list **list_a)
 
 	if (*list_a)
 	{
+		if (list_len(*list_a) == 1)
+		{
+			pb_low(list_a, list_b);
+			return ;
+		}
 		if (!(*list_b))
 		{
 			*list_b = *list_a;

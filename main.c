@@ -158,32 +158,33 @@ int	main(int argc, char **argv)
 	a_list = create_list_a(argc, argv);
 //	sa(&a_list);
 //	sa(&a_list);
-//	pb(&a_list, &b_list);
-//	pb(&a_list, &b_list);
-//	pb(&a_list, &b_list);
-//	pb(&a_list, &b_list);
-//	pb(&a_list, &b_list);
-//	pb(&a_list, &b_list);
-//	pb(&a_list, &b_list);
-//	pb(&a_list, &b_list);
-//	pb(&a_list, &b_list);
-//	pb(&a_list, &b_list);
-//	pb(&a_list, &b_list);
+//	printf("ya tut");
 
-
+//	pb(&a_list, &b_list);
+//	pb(&a_list, &b_list);
+//	pb(&a_list, &b_list);
+//	pb(&a_list, &b_list);
+//	pb(&a_list, &b_list);
+//	pb(&a_list, &b_list);
+//	pb(&a_list, &b_list);
+//	pb(&a_list, &b_list);
+//	pb(&a_list, &b_list);
+//	pb(&a_list, &b_list);
+////	pb(&a_list, &b_list);
 
 //    ra(&a_list);
 //    rra(&a_list);
-	printf("--------------%d-----------------", list_len(b_list));
-	prnt = a_list;
-//	alg(&a_list, &b_list);
-//	while (i--)
-//	{
-//		printf("num = %d pos = %d \n", (prnt)->num, prnt->pos);
-//		prnt = prnt->ptr;
-//	}
-//	prnt = b_list;
-//	printf("\n ");
+//	printf("aaaa--------------%d-----------------\n", list_len(a_list));
+//	printf("bbbb--------------%d-----------------\n", list_len(b_list));
+//	prnt = a_list;
+	alg(&a_list, &b_list);
+	while (i--)
+	{
+		printf("num = %d pos = %d \n", (prnt)->num, prnt->pos);
+		prnt = prnt->ptr;
+	}
+	prnt = b_list;
+	printf("\n ");
 //	while (j--)
 //	{
 //		printf("num = %d pos = %d \n", (prnt)->num, prnt->pos);
