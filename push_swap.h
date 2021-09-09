@@ -9,7 +9,13 @@ typedef struct s_list
 	int				num;
 	int 			pos;
 	struct s_list	*ptr;
+	int 			flag;
 }					t_list;
+
+typedef struct s_util
+{
+	int		next;
+}			t_util;
 
 
 void	sa(t_list **ptr);
