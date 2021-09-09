@@ -9,6 +9,7 @@ typedef struct s_list
 	int				num;
 	int 			pos;
 	struct s_list	*ptr;
+	int 			flag;
 }					t_list;
 
 

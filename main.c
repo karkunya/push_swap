@@ -134,9 +134,11 @@ t_list	*create_list_a(int argc, char **argv)
 
 	size = argc - 1;
 	ptrl = new_elem(ft_atoi(argv[--argc]), NULL);
+	ptrl->flag = 0;
 	ptr = ptrl;
 	while (argc > 1) {
 		ptr = new_elem(ft_atoi(argv[--argc]), ptr);
+		ptr->flag = 0;
 	}
 	ptrl->ptr = ptr;
 	getpos(&ptr, list,	size);
@@ -195,7 +197,8 @@ int	main(int argc, char **argv)
 	printf("tuta before\n");
 	while (k--)
 	{
-		printf("a_list num = %d pos = %d \n", (prnt)->num, prnt->pos);
+//		write(1, ".\n", 2);
+		printf("a_list num = %d pos = %d flag = %d \n", (prnt)->num, prnt->pos, prnt->flag);
 		prnt = prnt->ptr;
 	}
 	alg(&a_list, &b_list);
@@ -203,6 +206,7 @@ int	main(int argc, char **argv)
 	printf("tuta after\n");
 	while (i--)
 	{
+//		write(1, ".\n", 2);
 		printf("a_list num = %d pos = %d \n", (prnt)->num, prnt->pos);
 		prnt = prnt->ptr;
 	}
