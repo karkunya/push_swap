@@ -194,7 +194,7 @@ int	main(int argc, char **argv)
 //	printf("aaaa--------------%d-----------------\n", list_len(a_list));
 //	printf("bbbb--------------%d-----------------\n", list_len(b_list));
 	prnt = a_list;
-	printf("tuta after\n");
+	printf("tuta before\n");
 	printf("a_list num = %d pos = %d \n", (prnt)->num, prnt->pos);
 	prnt = prnt->ptr;
 	while (prnt != a_list)

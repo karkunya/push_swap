@@ -49,8 +49,8 @@ void alg(t_list **a_list, t_list **b_list)
 			util.next++;
 			cntr++;
 			continue;
+			write(1, ".\n", 2);
 		}
-
 		if ((*b_list)->pos <= mid)
 		{
 			(*b_list)->flag++;
