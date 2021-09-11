@@ -15,6 +15,7 @@ typedef struct s_list
 typedef struct s_util
 {
 	int		next;
+	int 	flag;
 }			t_util;
 
 

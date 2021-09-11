@@ -148,7 +148,7 @@ t_list	*create_list_a(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-    printf("argc = %d\n\n\n", argc);
+//    printf("argc = %d\n\n\n", argc);
 	int i = 10;
 	int j = 10;
 	int k = 10;
@@ -159,40 +159,6 @@ int	main(int argc, char **argv)
 
 	b_list = NULL;
 	a_list = create_list_a(argc, argv);
-//	sa(&a_list);
-//	sa(&a_list);
-//	printf("ya tut");
-
-//	pb(&a_list, &b_list);
-//	pb(&a_list, &b_list);
-//	pb(&a_list, &b_list);
-//	pb(&a_list, &b_list);
-//	pb(&a_list, &b_list);
-//	pb(&a_list, &b_list);
-//	pb(&a_list, &b_list);
-//	pb(&a_list, &b_list);
-//	pb(&a_list, &b_list);
-//	pb(&a_list, &b_list);
-////
-////	pb(&a_list, &b_list);
-//
-//	pa(&a_list, &b_list);
-//	pa(&a_list, &b_list);
-//	pa(&a_list, &b_list);
-//	pa(&a_list, &b_list);
-//	pa(&a_list, &b_list);
-//	pa(&a_list, &b_list);
-//	pa(&a_list, &b_list);
-//	pa(&a_list, &b_list);
-//	pa(&a_list, &b_list);
-//	pa(&a_list, &b_list);
-
-////	pb(&a_list, &b_list);
-
-//    ra(&a_list);
-//    rra(&a_list);
-//	printf("aaaa--------------%d-----------------\n", list_len(a_list));
-//	printf("bbbb--------------%d-----------------\n", list_len(b_list));
 	prnt = a_list;
 	printf("tuta before\n");
 	printf("a_list num = %d pos = %d \n", (prnt)->num, prnt->pos);
@@ -212,17 +178,17 @@ int	main(int argc, char **argv)
 		printf("a_list num = %d pos = %d flag = %d \n", (prnt)->num, prnt->pos, prnt->flag);
 		prnt = prnt->ptr;
 	}
-	prnt = b_list;
-	printf("\n ");
-	printf("b_list num = %d pos = %d flag = %d \n", (prnt)->num, prnt->pos, prnt->flag);
-	prnt = prnt->ptr;
-	while (prnt != b_list)
-	{
-		printf("b_list num = %d pos = %d flag = %d \n", (prnt)->num, prnt->pos, prnt->flag);
-		prnt = prnt->ptr;
-	}
-
-	printf("\n ");
+//	prnt = b_list;
+//	printf("\n ");
+//	printf("b_list num = %d pos = %d flag = %d \n", (prnt)->num, prnt->pos, prnt->flag);
+//	prnt = prnt->ptr;
+//	while (prnt != b_list)
+//	{
+//		printf("b_list num = %d pos = %d flag = %d \n", (prnt)->num, prnt->pos, prnt->flag);
+//		prnt = prnt->ptr;
+//	}
+//
+//	printf("\n ");
 	//	printf("%d", (b_list)->num);
 	printf("\n ");
 	return (0);

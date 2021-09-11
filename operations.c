@@ -27,6 +27,7 @@ int 	list_len(t_list *list)
 
 void	sa(t_list **ptr)
 {
+	write(1, "sa\n", 3);
 	int	temp;
 
 	temp = (*ptr)->num;
@@ -70,9 +71,9 @@ void 	pb_low(t_list **list_a, t_list **list_b)
 // dsnt work with 1 or 2 nums
 void	pb(t_list **list_a, t_list **list_b)
 {
+	write(1, "pb\n", 3);
 	t_list *ptrl;
 	t_list *temp;
-//	printf("\n ******%d *** \n", list_len(*list_a));
 	if (*list_a)
     {
 		if (list_len(*list_a) < 3)
@@ -99,21 +100,14 @@ void	pb(t_list **list_a, t_list **list_b)
 			*list_b = temp;
 			ptrl->ptr = *list_b;
 		}
-//		if (list_len(*list_a) == 2)
-//		{
-//			(*list_a)->ptr = *list_a;
-//			printf("\n==2\n");
-//		}
-//		if (list_len(*list_a) == 1)
-//			*list_a = NULL;
 	}
 }
 
 void	pa(t_list **list_b, t_list **list_a)
 {
+	write(1, "pa\n", 3);
 	t_list *ptrl;
 	t_list *temp;
-	//	printf("\n ******%d *** \n", list_len(*list_a));
 	if (*list_a)
 	{
 		if (list_len(*list_a) == 1)
@@ -140,23 +134,18 @@ void	pa(t_list **list_b, t_list **list_a)
 			*list_b = temp;
 			ptrl->ptr = *list_b;
 		}
-		//		if (list_len(*list_a) == 2)
-		//		{
-		//			(*list_a)->ptr = *list_a;
-		//			printf("\n==2\n");
-		//		}
-		//		if (list_len(*list_a) == 1)
-		//			*list_a = NULL;
 	}
 }
 
 void    ra(t_list **a_list)
 {
+	write(1, "ra\n", 3);
     *a_list = (*a_list)->ptr;
 }
 
 void    rb(t_list **list)
 {
+	write(1, "rb\n", 3);
     *list = (*list)->ptr;
 }
 
@@ -168,16 +157,19 @@ void    rr(t_list **a_list, t_list **b_list)
 
 void    rra(t_list **a_list)
 {
+	write(1, "rra\n", 4);
     *a_list = lst_ptr(*a_list);
 }
 
 void    rrb(t_list **b_list)
 {
+	write(1, "rrb\n", 4);
     *b_list = lst_ptr(*b_list);
 }
 
 void    rrr(t_list **a_list, t_list **b_list)
 {
+	write(1, "rrr\n", 4);
     rra(a_list);
     rrb(b_list);
 }
