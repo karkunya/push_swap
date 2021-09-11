@@ -199,10 +199,6 @@ int	main(int argc, char **argv)
 	prnt = prnt->ptr;
 	while (prnt != a_list)
 	{
-<<<<<<< HEAD
-=======
-//		write(1, ".\n", 2);
->>>>>>> 226af76b5f75539135a71ce5bd84161d9492c5e9
 		printf("a_list num = %d pos = %d flag = %d \n", (prnt)->num, prnt->pos, prnt->flag);
 		prnt = prnt->ptr;
 	}
@@ -213,12 +209,7 @@ int	main(int argc, char **argv)
 	prnt = prnt->ptr;
 	while (prnt != a_list)
 	{
-<<<<<<< HEAD
 		printf("a_list num = %d pos = %d flag = %d \n", (prnt)->num, prnt->pos, prnt->flag);
-=======
-//		write(1, ".\n", 2);
-		printf("a_list num = %d pos = %d \n", (prnt)->num, prnt->pos);
->>>>>>> 226af76b5f75539135a71ce5bd84161d9492c5e9
 		prnt = prnt->ptr;
 	}
 	prnt = b_list;
