@@ -101,7 +101,7 @@ void getpos(t_list **ptr, int *list, int size)
 	while (i <= size)
 	{
 		if (temp->num == list[i])
-			temp->pos = i + 1;
+			temp->pos = (i + 1);
 		i++;
 	}
 	while (temp != ptrl)
@@ -110,7 +110,7 @@ void getpos(t_list **ptr, int *list, int size)
 		while (i <= size)
 		{
 			if (temp->num == list[i]) {
-				temp->pos = i + 1;
+				temp->pos = (i + 1);
 			}
 			i++;
 		}
@@ -160,16 +160,16 @@ int	main(int argc, char **argv)
 
 	b_list = NULL;
 	a_list = create_list_a(argc, argv);
-//	prnt = a_list;
-//	printf("tuta before\n");
-//	printf("a_list num = %d pos = %d \n", (prnt)->num, prnt->pos);
-//	prnt = prnt->ptr;
-//	while (prnt != a_list)
-//	{
-//		printf("a_list num = %d pos = %d flag = %d \n", (prnt)->num, prnt->pos, prnt->flag);
-//		prnt = prnt->ptr;
-//	}
-	alg(&a_list, &b_list);
+	prnt = a_list;
+	printf("tuta before\n");
+	printf("a_list num = %d pos = %d \n", (prnt)->num, prnt->pos);
+	prnt = prnt->ptr;
+	while (prnt != a_list)
+	{
+		printf("a_list num = %d pos = %d flag = %d \n", (prnt)->num, prnt->pos, prnt->flag);
+		prnt = prnt->ptr;
+	}
+//	alg(&a_list, &b_list);
 //	prnt = a_list;
 //	printf("tuta after\n");
 //	printf("a_list num = %d pos = %d \n", (prnt)->num, prnt->pos);

@@ -11,6 +11,7 @@ from math import sqrt
 
 """
 gcc main.c operations.c alg.c -o push_swap && python3 pyviz.py `ruby -e "puts (0..499).to_a.shuffle.join(' ')"`
+gcc main.c operaions.c push_swap.h alg.c  &&  ./a.out 21 39 32 5 47 15 49 29 36 33 11 34 30 50 25 46 48 24 16 40 27 13 12 26 10 38 28 4 6 42 7 43 44 45 19 22 20 18 14 31 17 8 9 35 41 2 37 23 3 1 0
 __project__ = "push_swap visualizer"
 __author__ = "Emmanuel Ruaud"
 __email__ = "eruaud@student.le-101.fr"
