@@ -24,7 +24,7 @@ void alg(t_list **a_list, t_list **b_list)
 	t_util util;
 	t_list *prnt;
 
-	util.next = 2;
+	util.next = 1;
 	util.flag = 2;
 	ptrl = lst_ptr(*a_list);
 	mid = (srh_max(*a_list) / 2 + util.next);
@@ -60,6 +60,7 @@ void alg(t_list **a_list, t_list **b_list)
 	while (*b_list != NULL) {
 		mid = ((srh_max(*b_list) - util.next) / 2 + util.next);
 		cntr = list_len(*b_list);
+//		write(1, ".\n", 2);
 		while ((*b_list != NULL) && cntr)
 		{
 			if ((*b_list)->pos == util.next)
@@ -80,4 +81,5 @@ void alg(t_list **a_list, t_list **b_list)
 		}
 		util.flag++;
 	}
+
 }
