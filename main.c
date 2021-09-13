@@ -110,7 +110,7 @@ void getpos(t_list **ptr, int *list, int size)
 		temp = temp->ptr;
 	}
 	i = 0;
-	while (i <= size)
+	while (i < size)
 	{
 		if (temp->num == list[i])
 			temp->pos = (i + 1);
