@@ -82,4 +82,5 @@ void alg(t_list **a_list, t_list **b_list)
 		util.flag++;
 	}
 
+
 }
