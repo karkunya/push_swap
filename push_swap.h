@@ -16,6 +16,8 @@ typedef struct s_util
 {
 	int		next;
 	int 	flag;
+	int 	mid;
+	int		cntr;
 }			t_util;
 
 

@@ -131,7 +131,7 @@ t_list	*create_list_a(int argc, char **argv)
 //	{
 //		printf("num = %d pos = %d \n", list[i], i);
 //	}
-	printf("\n");
+//	printf("\n");
 
 	size = argc - 1;
 	ptrl = new_elem(ft_atoi(argv[--argc]), NULL);
@@ -172,11 +172,11 @@ int	main(int argc, char **argv)
 	alg(&a_list, &b_list);
 //	prnt = a_list;
 //	printf("tuta after\n");
-//	printf("a_list num = %d pos = %d \n", (prnt)->num, prnt->pos);
+//	printf("num %d pos %d flag %d \n", (prnt)->num, prnt->pos, prnt->flag);
 //	prnt = prnt->ptr;
 //	while (prnt != a_list)
 //	{
-//		printf("a_list num = %d pos = %d flag = %d \n", (prnt)->num, prnt->pos, prnt->flag);
+//		printf("num %d pos %d flag %d \n", (prnt)->num, prnt->pos, prnt->flag);
 //		prnt = prnt->ptr;
 //	}
 //	prnt = b_list;
@@ -191,6 +191,5 @@ int	main(int argc, char **argv)
 //
 //	printf("\n ");
 	//	printf("%d", (b_list)->num);
-	printf("\n ");
 	return (0);
 }
