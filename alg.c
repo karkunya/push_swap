@@ -3,17 +3,21 @@
 int	is_list_sorted(t_list **a, t_list **b)
 {
 	t_list	*temp;
-	write(1, ".\n", 2);
+//	write(1, "1.\n", 3);
 	temp = *b;
 	if (temp)
 		return (0);
 	temp = *a;
-	while (temp->ptr)
+	while (temp->ptr != *a)
 	{
+//		write(1, "2.\n", 3);
 		if (temp->ptr->pos < temp->pos)
 			return(0);
 		temp = temp->ptr;
 	}
+//	if (temp->ptr->pos < temp->pos)
+//		return(0);
+//	temp = temp->ptr;
 	return (1);
 }
 
@@ -41,12 +45,15 @@ int srh_max(t_list *list, t_util *util)
 
 void from_b_to_a(t_list **a_list, t_list **b_list, t_util *util)
 {
+	t_list *temp;
+
 	while (*b_list != NULL)
 	{
+		temp = *b_list;
 		(*util).mid = ((srh_max(*b_list, util) - (*util).next) / 2 + (*util).next);
 		(*util).cntr = list_len(*b_list);
 //		while ((*b_list != NULL) && (*util).cntr)
-		while ((*b_list != NULL))
+		while ((*b_list && (*temp).ptr != *b_list))
 		{
 			if ((*b_list)->pos == (*util).next)
 			{
@@ -109,12 +116,15 @@ int is_list_sorted2(t_list **a_list)
 	t_list *temp;
 
 	temp = *a_list;
-	while (temp->ptr)
+	while (temp->ptr != *a_list)
 	{
 		if (temp->ptr->pos < temp->pos)
 			return(0);
 		temp = temp->ptr;
 	}
+//	if (temp->ptr->pos < temp->pos)
+//		return(0);
+//	temp = temp->ptr;
 	return (1);
 }
 
@@ -164,6 +174,7 @@ void alg(t_list **a_list, t_list **b_list)
 	first_iteration(a_list, b_list, &util);
 	while (!is_list_sorted(a_list, b_list))
 	{
+//		write(1, "3.\n", 3);
 		util.mid = srh_max(*b_list, &util);
 		while (*b_list)
 			from_b_to_a(a_list, b_list, &util);
