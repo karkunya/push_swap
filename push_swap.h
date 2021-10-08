@@ -30,5 +30,9 @@ void    rb(t_list **b_list);
 void    rra(t_list **a_list);
 t_list *lst_ptr(t_list *list);
 void alg(t_list **a_list, t_list **b_list);
+int	is_list_sorted(t_list **a, t_list **b);
+t_list	*create_list_a(int argc, char **argv);
+int is_list_sorted2(t_list **a_list);
+t_list *lst_ptr(t_list *list);
 
 #endif
