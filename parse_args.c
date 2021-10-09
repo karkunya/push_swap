@@ -21,6 +21,6 @@ void	free_list(t_list **list)
 void	an_error_was_found(t_list **a)
 {
 	write(1, "Error\n", 6);
-	free_list(a);
+//	free_list(a);
 	exit(1);
 }

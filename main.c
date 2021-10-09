@@ -160,6 +160,8 @@ int	main(int argc, char **argv)
 
 	b_list = NULL;
 	a_list = create_list_a(argc, argv);
+	if (is_list_sorted2(&a_list))
+		an_error_was_found(&a_list);
 //	prnt = a_list;
 //	printf("tuta before\n");
 //	printf("a_list num = %d pos = %d \n", (prnt)->num, prnt->pos);

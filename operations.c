@@ -68,7 +68,6 @@ void 	pb_low(t_list **list_a, t_list **list_b)
 }
 
 
-// dsnt work with 1 or 2 nums
 void	pb(t_list **list_a, t_list **list_b)
 {
 	write(1, "pb\n", 3);

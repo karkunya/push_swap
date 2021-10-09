@@ -27,8 +27,8 @@ int srh_max(t_list *list, t_util *util)
 	int flag;
 	int max;
 
-	if (!list)
-		return (0);
+//	if (!list)
+//		return (0);
 	flag = list->flag;
 	t_list *temp;
 	t_list *list_lst;
@@ -251,7 +251,8 @@ void alg(t_list **a_list, t_list **b_list)
 	{
 //		write(1, ".alg\n", 5);
 //		write(1, "3.\n", 3);
-		util.mid = srh_max(*b_list, &util);
+		if (*b_list)
+			util.mid = srh_max(*b_list, &util);
 //		write(1, ".alg2\n", 6);
 		while (*b_list) {
 //			write(1, ".whilealg\n", 9);
