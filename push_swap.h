@@ -35,5 +35,6 @@ t_list	*create_list_a(int argc, char **argv);
 int is_list_sorted2(t_list **a_list);
 t_list *lst_ptr(t_list *list);
 void	an_error_was_found(t_list **a);
+void	free_list(t_list **list);
 
 #endif

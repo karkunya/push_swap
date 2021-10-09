@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include "push_swap.h"
 
-
 int	ft_isdigit(int c)
 {
 	return ((c >= '0') && (c <= '9'));
@@ -11,35 +10,39 @@ int	ft_isdigit(int c)
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	result;
-	int	count;
+	int		i;
+	size_t	result;
+	int		count;
 
 	result = 0;
 	count = 1;
 	i = 0;
 	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\r'
-	|| str[i] == '\v' || str[i] == '\f' || str[i] == '\n')
+		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\n')
 		i++;
 	if (str[i] == '-')
 	{
 		count *= -1;
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
 	while (ft_isdigit(str[i]))
 	{
 		result *= 10;
 		result += str[i] - '0';
+		if ((count == -1 && result > 2147483648)
+			|| (count == 1 && result > 2147483647))
+		{
+			write(1, "Error\n", 1);
+			exit(1);
+		}
 		i++;
 	}
 	return (result * count);
 }
 
-t_list *new_elem(int num, t_list *ptr)
+t_list	*new_elem(int num, t_list *ptr)
 {
-	t_list *new;
+	t_list	*new;
 
 	new = malloc(sizeof(t_list));
 	if (!new)
@@ -49,11 +52,24 @@ t_list *new_elem(int num, t_list *ptr)
 	return (new);
 }
 
-void sort_int_list(int *list, int size)
+void	check_dup(int *list, int size, int i)
+{
+	while (i < (size - 1))
+	{
+		if (list[i] == list [i + 1])
+		{
+			write(1, "Error\n", 6);
+			exit(1);
+		}
+		i++;
+	}
+}
+
+void	sort_int_list(int *list, int size)
 {
 	int	i;
 	int	j;
-	int temp;
+	int	temp;
 
 	i = 0;
 	while (i < (size - 1))
@@ -63,7 +79,7 @@ void sort_int_list(int *list, int size)
 		{
 			if (list[j - 1] > list[j])
 			{
-				temp = list[j -1];
+				temp = list[j - 1];
 				list[j - 1] = list[j];
 				list[j] = temp;
 			}
@@ -71,15 +87,18 @@ void sort_int_list(int *list, int size)
 		}
 		i++;
 	}
+	check_dup(list, size, 0);
 }
 
-int *create_list_int(int argc, char **argv)
+int	*create_list_int(int argc, char **argv)
 {
-    int *list;
+	int	*list;
+	int	i;
+
+	i = 0;
 	list = malloc(sizeof(int) * (argc - 1));
 	if (!list)
 		return (0);
-    int i = 0;
 	while (i < (argc - 1))
 	{
 		list[i] = ft_atoi(argv[i + 1]);
@@ -89,11 +108,11 @@ int *create_list_int(int argc, char **argv)
 	return (list);
 }
 
-void getpos(t_list **ptr, int *list, int size)
+void	getpos(t_list **ptr, int *list, int size)
 {
-	int i;
-	t_list *temp;
-	t_list *ptrl;
+	int		i;
+	t_list	*temp;
+	t_list	*ptrl;
 
 	ptrl = lst_ptr(*ptr);
 	temp = *ptr;
@@ -102,7 +121,8 @@ void getpos(t_list **ptr, int *list, int size)
 		i = 0;
 		while (i < size)
 		{
-			if (temp->num == list[i]) {
+			if (temp->num == list[i])
+			{
 				temp->pos = (i + 1);
 			}
 			i++;
@@ -120,78 +140,39 @@ void getpos(t_list **ptr, int *list, int size)
 
 t_list	*create_list_a(int argc, char **argv)
 {
-	t_list *ptr;
-	t_list *ptrl;
-	int     *list;
-	int 	size;
-	int i = argc - 1;
+	t_list	*ptr;
+	t_list	*ptrl;
+	int		*list;
+	int		size;
 
 	list = create_list_int(argc, argv);
-//	while (i--)
-//	{
-//		printf("num = %d pos = %d \n", list[i], i);
-//	}
-//	printf("\n");
-
 	size = argc - 1;
 	ptrl = new_elem(ft_atoi(argv[--argc]), NULL);
 	ptrl->flag = 0;
 	ptr = ptrl;
-	while (argc > 1) {
+	while (argc > 1)
+	{
 		ptr = new_elem(ft_atoi(argv[--argc]), ptr);
 		ptr->flag = 0;
 	}
 	ptrl->ptr = ptr;
-	getpos(&ptr, list,	size);
+	getpos(&ptr, list, size);
 	free(list);
 	return (ptr);
 }
 
 int	main(int argc, char **argv)
 {
-//    printf("argc = %d\n\n\n", argc);
-	int i = 10;
-	int j = 10;
-	int k = 10;
-
-	t_list *a_list;
-	t_list *prnt;
-	t_list *b_list;
+	t_list	*a_list;
+	t_list	*b_list;
 
 	b_list = NULL;
 	a_list = create_list_a(argc, argv);
 	if (is_list_sorted2(&a_list))
-		an_error_was_found(&a_list);
-//	prnt = a_list;
-//	printf("tuta before\n");
-//	printf("a_list num = %d pos = %d \n", (prnt)->num, prnt->pos);
-//	prnt = prnt->ptr;
-//	while (prnt != a_list)
-//	{
-//		printf("a_list num = %d pos = %d flag = %d \n", (prnt)->num, prnt->pos, prnt->flag);
-//		prnt = prnt->ptr;
-//	}
+	{
+		free_list(&a_list);
+		exit(1);
+	}
 	alg(&a_list, &b_list);
-//	prnt = a_list;
-//	printf("tuta after\n");
-//	printf("num %d pos %d flag %d \n", (prnt)->num, prnt->pos, prnt->flag);
-//	prnt = prnt->ptr;
-//	while (prnt != a_list)
-//	{
-//		printf("num %d pos %d flag %d \n", (prnt)->num, prnt->pos, prnt->flag);
-//		prnt = prnt->ptr;
-//	}
-//	prnt = b_list;
-//	printf("\n ");
-//	printf("b_list num = %d pos = %d flag = %d \n", (prnt)->num, prnt->pos, prnt->flag);
-//	prnt = prnt->ptr;
-//	while (prnt != b_list)
-//	{
-//		printf("b_list num = %d pos = %d flag = %d \n", (prnt)->num, prnt->pos, prnt->flag);
-//		prnt = prnt->ptr;
-//	}
-//
-//	printf("\n ");
-	//	printf("%d", (b_list)->num);
 	return (0);
 }
