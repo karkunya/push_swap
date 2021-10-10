@@ -36,5 +36,8 @@ int is_list_sorted2(t_list **a_list);
 t_list *lst_ptr(t_list *list);
 void	an_error_was_found(t_list **a);
 void	free_list(t_list **list);
+void	sort_3_numbers(t_list **a);
+void	sort_4_numbers(t_list **a, t_list **b);
+void	sort_5_numbers(t_list **a, t_list **b);
 
 #endif

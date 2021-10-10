@@ -1,6 +1,3 @@
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include "push_swap.h"
 
 int	ft_isdigit(int c)
@@ -173,6 +170,15 @@ int	main(int argc, char **argv)
 		free_list(&a_list);
 		exit(1);
 	}
+	if (argc == 3 && a_list->num > a_list->ptr->num)
+		rra(&a_list);
+	else if (argc == 4)
+		sort_3_numbers(&a_list);
+	else if (argc == 5)
+		sort_4_numbers(&a_list, &b_list);
+	else if (argc == 6)
+		sort_5_numbers(&a_list, &b_list);
+	else
 	alg(&a_list, &b_list);
 	return (0);
 }

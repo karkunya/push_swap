@@ -1,4 +1,4 @@
-#include "push_swap.h"
+gi#include "push_swap.h"
 
 int	is_list_sorted(t_list **a, t_list **b)
 {
