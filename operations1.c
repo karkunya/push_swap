@@ -1,39 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_args.c                                       :+:      :+:    :+:   */
+/*   operations1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbeach <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/10 19:03:14 by wbeach            #+#    #+#             */
-/*   Updated: 2021/10/10 19:14:36 by                  ###   ########.fr       */
+/*   Created: 2021/10/10 19:13:57 by wbeach            #+#    #+#             */
+/*   Updated: 2021/10/10 19:13:59 by wbeach           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_list(t_list **list)
+void	ra(t_list **a_list)
 {
-	t_list	*temp1;
-	t_list	*temp2;
-	t_list	*temp3;
-
-	temp1 = *list;
-	if (!temp1)
-		return ;
-	temp3 = lst_ptr(*list);
-	temp2 = temp1->ptr;
-	while (temp3 != temp1)
-	{
-		free(temp1);
-		temp1 = temp2;
-		temp2 = temp1->ptr;
-	}
+	write(1, "ra\n", 3);
+	*a_list = (*a_list)->ptr;
 }
 
-void	an_error_was_found(t_list **a)
+void	rb(t_list **list)
 {
-	write(1, "Error\n", 6);
-	free_list(a);
-	exit(1);
+	write(1, "rb\n", 3);
+	*list = (*list)->ptr;
+}
+
+void	rr(t_list **a_list, t_list **b_list)
+{
+	ra(a_list);
+	rb(b_list);
+}
+
+void	rra(t_list **a_list)
+{
+	write(1, "rra\n", 4);
+	*a_list = lst_ptr(*a_list);
+}
+
+void	rrb(t_list **b_list)
+{
+	write(1, "rrb\n", 4);
+	*b_list = lst_ptr(*b_list);
 }

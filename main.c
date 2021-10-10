@@ -1,42 +1,5 @@
 #include "push_swap.h"
 
-int	ft_isdigit(int c)
-{
-	return ((c >= '0') && (c <= '9'));
-}
-
-int	ft_atoi(const char *str)
-{
-	int		i;
-	size_t	result;
-	int		count;
-
-	result = 0;
-	count = 1;
-	i = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\r'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\n')
-		i++;
-	if (str[i] == '-')
-	{
-		count *= -1;
-		i++;
-	}
-	while (ft_isdigit(str[i]))
-	{
-		result *= 10;
-		result += str[i] - '0';
-		if ((count == -1 && result > 2147483648)
-			|| (count == 1 && result > 2147483647))
-		{
-			write(1, "Error\n", 1);
-			exit(1);
-		}
-		i++;
-	}
-	return (result * count);
-}
-
 t_list	*new_elem(int num, t_list *ptr)
 {
 	t_list	*new;
@@ -47,19 +10,6 @@ t_list	*new_elem(int num, t_list *ptr)
 	new->num = num;
 	new->ptr = ptr;
 	return (new);
-}
-
-void	check_dup(int *list, int size, int i)
-{
-	while (i < (size - 1))
-	{
-		if (list[i] == list [i + 1])
-		{
-			write(1, "Error\n", 6);
-			exit(1);
-		}
-		i++;
-	}
 }
 
 void	sort_int_list(int *list, int size)
@@ -105,36 +55,6 @@ int	*create_list_int(int argc, char **argv)
 	return (list);
 }
 
-void	getpos(t_list **ptr, int *list, int size)
-{
-	int		i;
-	t_list	*temp;
-	t_list	*ptrl;
-
-	ptrl = lst_ptr(*ptr);
-	temp = *ptr;
-	while (temp != ptrl)
-	{
-		i = 0;
-		while (i < size)
-		{
-			if (temp->num == list[i])
-			{
-				temp->pos = (i + 1);
-			}
-			i++;
-		}
-		temp = temp->ptr;
-	}
-	i = 0;
-	while (i < size)
-	{
-		if (temp->num == list[i])
-			temp->pos = (i + 1);
-		i++;
-	}
-}
-
 t_list	*create_list_a(int argc, char **argv)
 {
 	t_list	*ptr;
@@ -168,6 +88,7 @@ int	main(int argc, char **argv)
 	if (is_list_sorted2(&a_list))
 	{
 		free_list(&a_list);
+		write(1, "1\n", 2);
 		exit(1);
 	}
 	if (argc == 3 && a_list->num > a_list->ptr->num)
@@ -179,6 +100,6 @@ int	main(int argc, char **argv)
 	else if (argc == 6)
 		sort_5_numbers(&a_list, &b_list);
 	else
-	alg(&a_list, &b_list);
+		alg(&a_list, &b_list);
 	return (0);
 }

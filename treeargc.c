@@ -5,7 +5,7 @@ void	sort_3_numbers(t_list **a)
 	t_list	*temp;
 
 	temp = *a;
-		if (temp->num < temp->ptr->num && temp->num < temp->ptr->ptr->num)
+	if (temp->num < temp->ptr->num && temp->num < temp->ptr->ptr->num)
 		sa(a), ra(a);
 	else if (temp->num > temp->ptr->num && temp->num > temp->ptr->ptr->num)
 	{
