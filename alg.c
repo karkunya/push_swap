@@ -78,6 +78,41 @@ void	from_a_to_b(t_list **a_list, t_list **b_list, t_util *util)
 	from_a_to_b_cycle(a_list, b_list, util);
 }
 
+void	lolkekcycle(t_list **a_list, t_list **b_list, t_util *util)
+{
+	t_list	*a_first;
+	int		flag;
+
+	a_first = *a_list;
+	flag = a_first->flag;
+	if (a_first->pos == util->next)
+	{
+		util->next++;
+		ra(a_list);
+	}
+	else if (a_first->flag == flag)
+		pb(a_list, b_list);
+}
+
+void lolkekfunc(t_list **a_list, t_list **b_list, t_util *util)
+{
+	t_list	*a_first;
+	t_list	*a_last;
+	int		flag;
+
+	a_first = *a_list;
+	a_last = lst_ptr(a_first);
+	flag = a_first->flag;
+	while (a_first != a_last)
+	{
+		a_first = *a_list;
+		if (a_first->flag != flag)
+			return ;
+		from_a_to_b_cycle(a_list, b_list, util);
+	}
+	from_a_to_b_cycle(a_list, b_list, util);
+}
+
 void	alg(t_list **a_list, t_list **b_list)
 {
 	t_util	util;
@@ -94,7 +129,12 @@ void	alg(t_list **a_list, t_list **b_list)
 			from_b_to_a(a_list, b_list, &util);
 		}
 		if (!is_list_sorted2(a_list))
-			from_a_to_b(a_list, b_list, &util);
+		{
+			if ((*a_list)->flag == 0)
+				lolkekfunc(a_list, b_list, &util);
+			else
+				from_a_to_b(a_list, b_list, &util);
+		}
 	}
 	free_list(a_list);
 }

@@ -41,25 +41,6 @@ void	sort_4_numbers_additional_func(t_list **a, t_list **b)
 		pa(a, b), ra(a);
 }
 
-void	sort_5_numbers_additional_func(t_list **a, t_list **b)
-{
-	t_list	*a_temp;
-	t_list	*b_temp;
-
-	a_temp = *a;
-	b_temp = *b;
-	if (a_temp->pos - b_temp->pos == 1)
-		pa(a, b);
-	else if (a_temp->pos - b_temp->pos == -1)
-		pa(a, b), sa(a);
-	else if (a_temp->ptr->pos - b_temp->pos == -1)
-		ra(a), pa(a, b), sa(a), rra(a);
-	else if (a_temp->ptr->ptr->pos - b_temp->pos == -1)
-		rra(a), pa(a, b), ra(a), ra(a);
-	else if (a_temp->ptr->ptr->ptr->pos - b_temp->pos == -1)
-		pa(a, b), ra(a);
-}
-
 void	sort_4_numbers(t_list **a, t_list **b)
 {
 	pb(a, b);
@@ -67,11 +48,19 @@ void	sort_4_numbers(t_list **a, t_list **b)
 	sort_4_numbers_additional_func(a, b);
 }
 
-void	sort_5_numbers(t_list **a, t_list **b)
+void sort_5_numbers(t_list **a, t_list **b)
 {
-	pb(a, b);
-	pb(a, b);
-	sort_3_numbers(a);
-	sort_4_numbers_additional_func(a, b);
-	sort_5_numbers_additional_func(a, b);
+	while (list_len(*a) > 3)
+	{
+		if ((*a)->pos == 1 || (*a)->pos == 2)
+			pb(a, b);
+		else
+			ra(a);
+	}
+	if (!is_list_sorted2(a))
+		sort_3_numbers(a);
+	if ((*b)->num < (*b)->ptr->num)
+		rb(b);
+	pa(a, b);
+	pa(a, b);
 }
