@@ -6,7 +6,7 @@
 /*   By: wbeach <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 20:04:07 by wbeach            #+#    #+#             */
-/*   Updated: 2021/10/11 19:12:20 by                  ###   ########.fr       */
+/*   Updated: 2021/10/12 20:09:02 by wbeach           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	from_b_to_a_cycle(t_list **a_list, t_list **b_list, t_util *util)
 	{
 		b_first->flag = util->flag;
 		pa(a_list, b_list);
-	}git
+	}
 }
 
 void	from_b_to_a(t_list **a_list, t_list **b_list, t_util *util)
