@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wbeach <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/10 20:06:25 by wbeach            #+#    #+#             */
+/*   Updated: 2021/10/11 19:59:49 by                  ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_list	*new_elem(int num, t_list *ptr)
@@ -84,11 +96,11 @@ int	main(int argc, char **argv)
 	t_list	*b_list;
 
 	b_list = NULL;
+	check_char(argc, argv);
 	a_list = create_list_a(argc, argv);
 	if (is_list_sorted2(&a_list))
 	{
 		free_list(&a_list);
-		write(1, "1\n", 2);
 		exit(1);
 	}
 	if (argc == 3 && a_list->num > a_list->ptr->num)

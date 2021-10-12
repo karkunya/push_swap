@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   treeargc.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wbeach <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/10 20:04:18 by wbeach            #+#    #+#             */
+/*   Updated: 2021/10/10 20:04:40 by                  ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	sort_3_numbers(t_list **a)
@@ -48,7 +60,7 @@ void	sort_4_numbers(t_list **a, t_list **b)
 	sort_4_numbers_additional_func(a, b);
 }
 
-void sort_5_numbers(t_list **a, t_list **b)
+void	sort_5_numbers(t_list **a, t_list **b)
 {
 	while (list_len(*a) > 3)
 	{

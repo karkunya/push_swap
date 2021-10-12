@@ -6,7 +6,7 @@
 /*   By: wbeach <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 19:13:36 by wbeach            #+#    #+#             */
-/*   Updated: 2021/10/10 19:13:38 by wbeach           ###   ########.fr       */
+/*   Updated: 2021/10/11 20:10:32 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_atoi(const char *str)
 		if ((count == -1 && result > 2147483648)
 			|| (count == 1 && result > 2147483647))
 		{
-			write(1, "Error\n", 1);
+			write(1, "Error\n", 6);
 			exit(1);
 		}
 		i++;
@@ -50,7 +50,7 @@ void	check_dup(int *list, int size, int i)
 {
 	while (i < (size - 1))
 	{
-		if (list[i] == list [i + 1])
+		if (list[i] == list[i + 1])
 		{
 			write(1, "Error\n", 6);
 			exit(1);
@@ -85,4 +85,24 @@ void	getpos(t_list **ptr, int *list, int size)
 			temp->pos = (i + 1);
 		i++;
 	}
+}
+
+void	check_char(int argc, char **argv)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (i < argc)
+	{
+		j = 0;
+		while (argv[i][j])
+		{
+			if (!((j == 0 && argv[i][j] == '-') || ft_isdigit(argv[i][j])))
+				write(1, "Error\n", 6), exit(1);
+			j++;
+		}
+		i++;
+	}
+	return ;
 }

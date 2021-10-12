@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations2p.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wbeach <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/10 20:03:04 by wbeach            #+#    #+#             */
+/*   Updated: 2021/10/11 19:06:14 by                  ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	pb_low(t_list **list_a, t_list **list_b)
@@ -43,6 +55,8 @@ void	pb(t_list **list_a, t_list **list_b)
 	t_list	*ptrl;
 	t_list	*temp;
 
+	ptrl = NULL;
+	temp = NULL;
 	write(1, "pb\n", 3);
 	if (*list_a)
 	{
@@ -69,6 +83,8 @@ void	pa(t_list **list_b, t_list **list_a)
 	t_list	*ptrl;
 	t_list	*temp;
 
+	ptrl = NULL;
+	temp = NULL;
 	write(1, "pa\n", 3);
 	if (*list_a)
 	{

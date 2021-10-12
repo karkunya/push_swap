@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wbeach <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/10 20:03:56 by wbeach            #+#    #+#             */
+/*   Updated: 2021/10/11 19:59:49 by                  ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -44,11 +56,13 @@ void	sort_3_numbers(t_list **a);
 void	sort_4_numbers(t_list **a, t_list **b);
 void	sort_5_numbers(t_list **a, t_list **b);
 
+int		ft_isdigit(int c);
+void	check_char(int argc, char **argv);
 int		ft_atoi(const char *str);
 void	check_dup(int *list, int size, int i);
 void	getpos(t_list **ptr, int *list, int size);
 void	init_util(t_util *util);
-int		srh_max(t_list *list, t_util *util);
+int		srh_max(t_list *list);
 int		is_list_sorted(t_list **a, t_list **b);
 int		is_list_sorted2(t_list **a_list);
 void	first_iteration(t_list **a_list, t_list **b_list, t_util *util);

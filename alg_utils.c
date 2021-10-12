@@ -36,7 +36,7 @@ void	init_util(t_util *util)
 	util->cntr = 0;
 }
 
-int	srh_max(t_list *list, t_util *util)
+int	srh_max(t_list *list)
 {
 	int		flag;
 	int		max;

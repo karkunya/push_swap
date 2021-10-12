@@ -24,7 +24,6 @@ void	sa(t_list **ptr)
 
 void	ss(t_list **list_a, t_list **list_b)
 {
-	write(1, "ss\n", 3);
 	sa(list_a);
 	sa(list_b);
 }
